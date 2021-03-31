@@ -65,9 +65,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\CountTextController.cs" />
     <Compile Include="Assets\Scripts\EventBroker.cs" />
+    <Compile Include="Assets\Scripts\LoseTextController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Rotator.cs" />
+    <Compile Include="Assets\Scripts\WinTextController.cs" />
     <Compile Include="Assets\Template\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\Template\TutorialInfo\Scripts\Readme.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />

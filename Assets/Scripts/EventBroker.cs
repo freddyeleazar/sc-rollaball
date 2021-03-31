@@ -1,18 +1,33 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
-public class EventBroker : MonoBehaviour
+public class EventBroker
 {
-    // Start is called before the first frame update
-    void Start()
+    public static event Action PlayerInDeathZone;
+    public static event Action PlayerWin;
+    public static event Action<int> PlayerPickUp;
+
+    public static void CallPlayerInDeathZone()
     {
-        
+        if (PlayerInDeathZone != null)
+        {
+            PlayerInDeathZone();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public static void CallPlayerWin()
     {
-        
+        if(PlayerWin != null)
+        {
+            PlayerWin();
+        }
+    }
+
+    public static void CallPlayerPickUp(int count)
+    {
+        if(PlayerPickUp != null)
+        {
+            PlayerPickUp(count);
+        }
     }
 }
