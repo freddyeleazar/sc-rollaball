@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 3330370153645082794}
   - component: {fileID: 3330370153645082795}
   - component: {fileID: 3447537315809676929}
+  - component: {fileID: 3440187641862121735}
+  - component: {fileID: 6144797808733306825}
   m_Layer: 0
   m_Name: PickUp
   m_TagString: PickUp
@@ -123,3 +125,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3440187641862121735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3330370153645082788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4686a9ae97d459344a9bf915a63c8f66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 0
+--- !u!114 &6144797808733306825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3330370153645082788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 059a93dc013789042a6fd3e87727bfba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yMax: 1.1
+  yMin: 0.5
+  levitationSpeed: 0.5

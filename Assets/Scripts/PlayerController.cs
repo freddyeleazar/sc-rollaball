@@ -6,7 +6,6 @@ public class PlayerController : MonoBehaviour
     public float speed = 0;
 
     private Rigidbody rb;
-    private int count;
     private float movementX;
     private float movementY;
 
@@ -14,7 +13,12 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        count = 0;
+    }
+
+    private void FixedUpdate()
+    {
+        Vector3 movement = new Vector3(movementX, 0.0f, movementY);
+        rb.AddForce(movement * speed);
     }
 
     private void OnMove(InputValue movementValue)
@@ -24,27 +28,16 @@ public class PlayerController : MonoBehaviour
         movementY = movementVector.y;
     }
 
-    private void FixedUpdate()
-    {
-        Vector3 movement = new Vector3(movementX, 0.0f, movementY);
-        rb.AddForce(movement * speed);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         switch (other.gameObject.tag)
         {
             case "PickUp":
-                other.gameObject.SetActive(false);
-                count++;
-                EventBroker.CallPlayerPickUp(count);
-                if(count >= 12)
-                {
-                    EventBroker.CallPlayerWin();
-                }
+                Destroy(other.gameObject);
+                EventBroker.CallPlayerPickUp(other.gameObject.GetComponent<PickUpController>());
                 break;
-            case "DeathZone":
-                EventBroker.CallPlayerInDeathZone();
+            case "Death Zone":
+                EventBroker.CallGameFinished("You Lose!");
                 break;
             default:
                 break;

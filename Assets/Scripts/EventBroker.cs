@@ -3,31 +3,31 @@ using UnityEngine;
 
 public class EventBroker
 {
-    public static event Action PlayerInDeathZone;
-    public static event Action PlayerWin;
-    public static event Action<int> PlayerPickUp;
+    public static event Action<string> GameFinished;
+    public static event Action<PickUpController> PlayerPickUp;
+    public static event Action<int> UpdateScore;
 
-    public static void CallPlayerInDeathZone()
+    public static void CallUpdateScore(int score)
     {
-        if (PlayerInDeathZone != null)
+        if(UpdateScore != null)
         {
-            PlayerInDeathZone();
+            UpdateScore(score);
         }
     }
 
-    public static void CallPlayerWin()
+    public static void CallGameFinished(string message)
     {
-        if(PlayerWin != null)
+        if(GameFinished!= null)
         {
-            PlayerWin();
+            GameFinished(message);
         }
     }
 
-    public static void CallPlayerPickUp(int count)
+    public static void CallPlayerPickUp(PickUpController pickUp)
     {
         if(PlayerPickUp != null)
         {
-            PlayerPickUp(count);
+            PlayerPickUp(pickUp);
         }
     }
 }
